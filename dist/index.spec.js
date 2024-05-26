@@ -20,11 +20,11 @@ const _1 = require(".");
         (0, globals_1.expect)(map).toBe("Cannot create map with negative number of columns.");
     });
     (0, globals_1.test)("should give errors for too big columns", () => {
-        const map = (0, _1.generateMap)(5, -2);
+        const map = (0, _1.generateMap)(5, 123);
         (0, globals_1.expect)(map).toBe("Cannot create map with excessive number of columns.");
     });
     (0, globals_1.test)("should give errors for too big rows", () => {
-        const map = (0, _1.generateMap)(5, -2);
+        const map = (0, _1.generateMap)(123, 5);
         (0, globals_1.expect)(map).toBe("Cannot create map with excessive number of rows.");
     });
 });
