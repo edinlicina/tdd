@@ -4,14 +4,12 @@ import { addShip, generateMap } from ".";
 describe("map", () => {
   test("should create map", () => {
     const map = generateMap(1, 5);
-    expect(map).toBe(". . . . . \n");
+    expect(map).toBe(".....\n");
   });
 
   test("should create multiple columns and rows", () => {
     const map = generateMap(5, 5);
-    expect(map).toBe(
-      ". . . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n"
-    );
+    expect(map).toBe(".....\n.....\n.....\n.....\n.....\n");
   });
 
   test("should give errors for negative row", () => {
@@ -39,15 +37,13 @@ describe("add ship", () => {
   test("should add ship to map with one row and 5 columns", () => {
     const map = generateMap(1, 5);
     const editedMap = addShip(map, 1, 0);
-    expect(editedMap).toBe(". X . . . \n");
+    expect(editedMap).toBe(".X...\n");
   });
 
   test("should add ship to map with 5 rows and 5 columns", () => {
     const map = generateMap(5, 5);
     const editedMap = addShip(map, 3, 2);
-    expect(editedMap).toBe(
-      ". . . . . \n. . . . . \n. . . X . \n. . . . . \n. . . . . \n"
-    );
+    expect(editedMap).toBe(".....\n.....\n...X.\n.....\n.....\n");
   });
 
   test("should only contain one ship max", () => {

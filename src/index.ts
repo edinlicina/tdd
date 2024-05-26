@@ -14,7 +14,7 @@ export function generateMap(rows: number, columns: number): string {
   let map = "";
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < columns; col++) {
-      map = map + ". ";
+      map = map + ".";
     }
     map = map + "\n";
   }
@@ -23,5 +23,37 @@ export function generateMap(rows: number, columns: number): string {
 }
 
 export function addShip(map: string, x: number, y: number): string {
-  return "";
+  if (map.indexOf("X") > -1) {
+    return "Only one ship is being supported";
+  }
+  if (x < 0) {
+    return "Cannot add ship with negative x coordinate";
+  }
+  if (y < 0) {
+    return "Cannot add ship with negative y coordinate";
+  }
+  const rows = map.split("\n");
+  // Result: [".....", ".....", ".....", ".....", "....."]
+  console.log(rows.length);
+  if (rows.length - 1 < y) {
+    return "Cannot add ship with excessive y coordinate";
+  }
+  const firstRow = rows.at(0);
+  if (firstRow === undefined) {
+    return "Error while parsing the map";
+  }
+  const columns = firstRow.length;
+  if (columns < x) {
+    return "Cannot add ship with excessive x coordinate";
+  }
+
+  const replaced = replaceAt(firstRow, x, "X");
+  return replaced + "\n";
+}
+function replaceAt(source: string, index: number, replacement: string) {
+  return (
+    source.substring(0, index) +
+    replacement +
+    source.substring(index + replacement.length)
+  );
 }
