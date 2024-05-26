@@ -11,5 +11,21 @@ const _1 = require(".");
         const map = (0, _1.generateMap)(5, 5);
         (0, globals_1.expect)(map).toBe(". . . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . ");
     });
+    (0, globals_1.test)("should give errors for negative row", () => {
+        const map = (0, _1.generateMap)(-1, 5);
+        (0, globals_1.expect)(map).toBe("Cannot create map with negative number of rows.");
+    });
+    (0, globals_1.test)("should give errors for negative columns", () => {
+        const map = (0, _1.generateMap)(5, -2);
+        (0, globals_1.expect)(map).toBe("Cannot create map with negative number of columns.");
+    });
+    (0, globals_1.test)("should give errors for too big columns", () => {
+        const map = (0, _1.generateMap)(5, -2);
+        (0, globals_1.expect)(map).toBe("Cannot create map with excessive number of columns.");
+    });
+    (0, globals_1.test)("should give errors for too big rows", () => {
+        const map = (0, _1.generateMap)(5, -2);
+        (0, globals_1.expect)(map).toBe("Cannot create map with excessive number of rows.");
+    });
 });
 //# sourceMappingURL=index.spec.js.map
