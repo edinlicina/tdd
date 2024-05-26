@@ -1,3 +1,4 @@
+generateMap(2, 5);
 export function generateMap(rows: number, columns: number) {
   if (columns < 0) {
     return "Cannot create map with negative number of columns.";
@@ -11,6 +12,13 @@ export function generateMap(rows: number, columns: number) {
   if (columns > 10) {
     return "Cannot create map with excessive number of columns.";
   }
+  let map = "";
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < columns; col++) {
+      map = map + ". ";
+    }
+    map = map + "\n";
+  }
 
-  return "";
+  return map;
 }

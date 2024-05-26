@@ -4,13 +4,13 @@ import { generateMap } from ".";
 describe("app", () => {
   test("should create map", () => {
     const map = generateMap(1, 5);
-    expect(map).toBe(". . . . .");
+    expect(map).toBe(". . . . . \n");
   });
 
   test("should create multiple columns and rows", () => {
     const map = generateMap(5, 5);
     expect(map).toBe(
-      ". . . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . "
+      ". . . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n"
     );
   });
 
