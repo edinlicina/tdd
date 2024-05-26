@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addShip = exports.generateMap = void 0;
+const map = generateMap(5, 5);
+const editedMap = addShip(map, 3, 2);
+console.log(editedMap);
 function generateMap(rows, columns) {
     if (columns < 0) {
         return "Cannot create map with negative number of columns.";
@@ -34,10 +37,9 @@ function addShip(map, x, y) {
     if (y < 0) {
         return "Cannot add ship with negative y coordinate";
     }
-    const rows = map.split("\n");
+    const rows = map.split("\n").filter((s) => s.length > 0);
     // Result: [".....", ".....", ".....", ".....", "....."]
-    console.log(rows.length);
-    if (rows.length - 1 < y) {
+    if (rows.length < y) {
         return "Cannot add ship with excessive y coordinate";
     }
     const firstRow = rows.at(0);
@@ -48,8 +50,20 @@ function addShip(map, x, y) {
     if (columns < x) {
         return "Cannot add ship with excessive x coordinate";
     }
-    const replaced = replaceAt(firstRow, x, "X");
-    return replaced + "\n";
+    let rowIndex = 0;
+    const editedMap = [];
+    for (let index = rows.length - 1; index >= 0; index--) {
+        const row = rows.at(index);
+        if (rowIndex === y) {
+            const replaced = replaceAt(firstRow, x, "X");
+            editedMap.push(replaced);
+        }
+        else {
+            editedMap.push(row);
+        }
+        rowIndex++;
+    }
+    return editedMap.join("\n") + "\n";
 }
 exports.addShip = addShip;
 function replaceAt(source, index, replacement) {
