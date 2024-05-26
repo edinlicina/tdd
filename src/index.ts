@@ -1,5 +1,4 @@
-generateMap(2, 5);
-export function generateMap(rows: number, columns: number) {
+export function generateMap(rows: number, columns: number): string {
   if (columns < 0) {
     return "Cannot create map with negative number of columns.";
   }
@@ -21,4 +20,8 @@ export function generateMap(rows: number, columns: number) {
   }
 
   return map;
+}
+
+export function addShip(map: string, x: number, y: number): string {
+  return "";
 }

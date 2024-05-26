@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateMap = void 0;
-generateMap(2, 5);
+exports.addShip = exports.generateMap = void 0;
 function generateMap(rows, columns) {
     if (columns < 0) {
         return "Cannot create map with negative number of columns.";
@@ -25,4 +24,8 @@ function generateMap(rows, columns) {
     return map;
 }
 exports.generateMap = generateMap;
+function addShip(map, x, y) {
+    return "";
+}
+exports.addShip = addShip;
 //# sourceMappingURL=index.js.map
