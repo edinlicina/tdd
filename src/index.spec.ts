@@ -1,3 +1,7 @@
-import { test } from "@jest/globals";
+import { test, expect } from "@jest/globals";
+import { generateMap } from ".";
 
-test("hello world", () => {});
+test("should create map", () => {
+  const map = generateMap();
+  expect(map).toBe("");
+});
