@@ -71,3 +71,11 @@ function replaceAt(source: string, index: number, replacement: string) {
     source.substring(index + replacement.length)
   );
 }
+
+export function findShip(map: string) {
+  if (map.indexOf("X") === -1) {
+    return "Spaceship lost forever.";
+  } else {
+    return "Spaceship has been found!";
+  }
+}

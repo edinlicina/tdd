@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addShip = exports.generateMap = void 0;
+exports.findShip = exports.addShip = exports.generateMap = void 0;
 const map = generateMap(5, 5);
 const editedMap = addShip(map, 3, 2);
 console.log(editedMap);
@@ -71,4 +71,13 @@ function replaceAt(source, index, replacement) {
         replacement +
         source.substring(index + replacement.length));
 }
+function findShip(map) {
+    if (map.indexOf("X") === -1) {
+        return "Spaceship lost forever.";
+    }
+    else {
+        return "Spaceship has been found!";
+    }
+}
+exports.findShip = findShip;
 //# sourceMappingURL=index.js.map

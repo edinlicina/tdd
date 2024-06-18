@@ -66,4 +66,17 @@ const _1 = require(".");
         (0, globals_1.expect)(editedMap).toBe("Cannot add ship with excessive y coordinate");
     });
 });
+(0, globals_1.describe)("find ship", () => {
+    (0, globals_1.test)("should find ship in map with one row and 5 columns", () => {
+        const map = (0, _1.generateMap)(1, 5);
+        const editedMap = (0, _1.addShip)(map, 1, 0);
+        const result = (0, _1.findShip)(editedMap);
+        (0, globals_1.expect)(result).toBe("Spaceship has been found!");
+    });
+    (0, globals_1.test)("should not find spaceship", () => {
+        const map = (0, _1.generateMap)(5, 5);
+        const result = (0, _1.findShip)(map);
+        (0, globals_1.expect)(result).toBe("Spaceship lost forever.");
+    });
+});
 //# sourceMappingURL=index.spec.js.map

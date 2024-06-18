@@ -1,5 +1,5 @@
 import { test, expect, describe } from "@jest/globals";
-import { addShip, generateMap } from ".";
+import { addShip, generateMap, findShip } from ".";
 
 describe("map", () => {
   test("should create map", () => {
@@ -73,5 +73,19 @@ describe("add ship", () => {
     const map = generateMap(5, 5);
     const editedMap = addShip(map, 3, 6);
     expect(editedMap).toBe("Cannot add ship with excessive y coordinate");
+  });
+});
+
+describe("find ship", () => {
+  test("should find ship in map with one row and 5 columns", () => {
+    const map = generateMap(1, 5);
+    const editedMap = addShip(map, 1, 0);
+    const result = findShip(editedMap);
+    expect(result).toBe("Spaceship has been found!");
+  });
+  test("should not find spaceship", () => {
+    const map = generateMap(5, 5);
+    const result = findShip(map);
+    expect(result).toBe("Spaceship lost forever.");
   });
 });
